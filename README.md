@@ -19,9 +19,9 @@ Services and providers are separated into 4 categories based on the usage of ser
   4. Render.com
   5. CloudFlare
   6. AWS
-    * Lightsail
-    * Amplify
-    * Simple Storage Service
+     * Lightsail
+     * Amplify
+     * Simple Storage Service
   7. GCP
     * Cloud Run
     * Firebase
