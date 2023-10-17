@@ -19,8 +19,15 @@ Services and providers are separated into 4 categories based on the usage of ser
   4. Render.com
   5. CloudFlare
   6. AWS
+    - Lightsail
+    - Amplify
+    - Simple Storage Service
   7. GCP
+    - Cloud Run
+    - Firebase
   8. Azure
+    - Azure App Services
+    - Blob Storage
 
 ### Deploying an API 
 
@@ -28,8 +35,18 @@ Services and providers are separated into 4 categories based on the usage of ser
   2. Render.com
   3. Fly.io
   4. AWS
+    - Lambda
+    - Fargate
   5. GCP
+    - Cloud Functions
+    - Cloud Run
+    - Cloud Endpoints
+    - App engine
   6. Azure
+    - Azure Functions
+    - Azure Container Apps
+    - Azure App Services
+    - Azure Web API
 
 ### Deploying a databse
 
@@ -39,8 +56,13 @@ Services and providers are separated into 4 categories based on the usage of ser
   4. Supabase
   5. Atlas
   6. AWS
+    - DynamoDB
+    - Aurora Serverless
   7. GCP
+    - Cloud SQL
   8. Azure
+    - Azure SQL Database
+    - Azure Cosmos DB
 
 ### Deploying object storage
 
