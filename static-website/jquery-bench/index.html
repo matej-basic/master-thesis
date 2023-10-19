@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <style>
+            body {
+                background-color: #222;
+                color: white;
+                font-family: Arial, sans-serif;
+                margin-top: 25px;
+                margin-left: 25px;
+            }
+
+            #root {
+                font-size: 48px;
+                text-align: center;
+                margin-bottom: 30px;
+            }
+
+            #timer {
+                margin-left: 25px;
+            }
+        </style>
+        <title>jQuery Simple Benchmark test</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+            $(document).ready(function (){
+                $("#root").html("Simple jQuery benchmark");
+            });
+        </script>
+        <script type="text/javascript">
+            $currentTime = new Date();
+            $timer = $currentTime - window.performance.timing.requestStart;
+            $(document).ready(function (){
+                $("#timer").html(`Time from the start of the request to when the page loaded: ` + $timer + ' ms');
+            })
+        </script>
+        <div id="root">
+        </div>
+        <div id="timer"></div>
+    </body>
+</html>
