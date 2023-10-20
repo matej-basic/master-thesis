@@ -33,3 +33,12 @@ body {
 .timer {
   margin-left: 25px;
 }
+
+.flex-container {
+  display: flex;
+}
+
+.flex-child {
+  float: 1;
+  padding-left: 5px;
+}

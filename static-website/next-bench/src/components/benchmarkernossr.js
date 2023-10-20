@@ -1,22 +1,21 @@
-import { useEffect, useState } from "react";
-
-const BenchmarkerNoSSR = () => {
-  const [timer, setTimer] = useState(0)
-
-  useEffect(() => {
-    const currentTime = new Date();
-    const timer = currentTime - window.performance.timing.requestStart;
-    setTimer(timer);
-  }, [])
-
-    return (
-      <>
-        <div className="timer-header">
+export const BenchmarkerNoSSR = () => {
+  return (
+  <div>
+    <div className="timer-header">
             Simple NextJS Benchmark with SSR disabled
-        </div>
-      <div className='timer' id='timer'>Time from the start of the request to when the page loaded: {timer} ms</div>
-      </>
-    )
+    </div>
+    <div className="timer flex-container">
+      Time from the start of the request to when the page loaded: 
+      <div id='timer' className="flex-child"></div>
+      <div className="flex-child">ms</div>
+    </div>
+    <script>
+        {`
+      const currentTime = new Date();
+      const fullTime = currentTime - window.performance.timing.requestStart;
+      document.getElementById(\`timer\`).innerHTML = fullTime;
+        `}
+      </script>
+  </div>
+  )
 }
-
-export default BenchmarkerNoSSR;

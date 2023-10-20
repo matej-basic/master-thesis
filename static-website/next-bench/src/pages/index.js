@@ -1,4 +1,4 @@
-import BenchmarkerNoSSR from "@/components/benchmarkernossr";
+import { BenchmarkerNoSSR } from "@/components/benchmarkernossr";
 
 export default function Home(props) {
   return (
