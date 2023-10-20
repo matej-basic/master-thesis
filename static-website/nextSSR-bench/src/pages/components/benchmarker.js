@@ -2,6 +2,7 @@
 const Benchmarker = ({props}) => {
     const currentTime = new Date();
     const fullTime = currentTime - Date.parse(props.message);
+    console.log(props.message);
       return (
           <div>
               <div className="timer-header">Simple NextJS Benchmark with SSR Enabled</div>
