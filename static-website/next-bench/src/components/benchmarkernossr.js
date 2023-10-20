@@ -1,7 +1,14 @@
+import { useEffect, useState } from "react";
 
 const BenchmarkerNoSSR = () => {
-  const currentTime = new Date();
-  const timer = currentTime - window.performance.timing.requestStart;
+  const [timer, setTimer] = useState(0)
+
+  useEffect(() => {
+    const currentTime = new Date();
+    const timer = currentTime - window.performance.timing.requestStart;
+    setTimer(timer);
+  }, [])
+
     return (
       <>
         <div className="timer-header">

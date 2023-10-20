@@ -1,12 +1,8 @@
-import dynamic from "next/dynamic";
-
-const BenchmarkerNoSSR = dynamic(() => import("../components/benchmarkernossr"), {ssr: false});
+import BenchmarkerNoSSR from "@/components/benchmarkernossr";
 
 export default function Home(props) {
   return (
-    <>
     <BenchmarkerNoSSR/>
-   </>
   )
 }
 
