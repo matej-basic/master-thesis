@@ -1,5 +1,5 @@
 
-import Benchmarker from "./components/benchmarker";
+import Benchmarker from "../components/benchmarker";
 
 export default function Home(props) {
   return (
