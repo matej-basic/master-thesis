@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+.timer-header {
+    background-color: #222;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 48px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .timer {
+    font-family: Arial, sans-serif;
+    margin-left: 25px;
+    color: white;
+  }
+
+  body {
+    background-color: #222;
+  }
