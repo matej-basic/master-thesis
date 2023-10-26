@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = process.env.PORT;
 
 app.get('/benchmark', (req, res) => {
     res.send('Simple ExpressJS Benchmark');
