@@ -92,9 +92,23 @@ Languages and frameworks are categorized the same way as services.
 ### Deploying an API
 
   1. Flask
-  2. Django
-  3. ExpressJS
-  4. Gin
-  5. Fiber
-  6. Axum
+  2. ExpressJS
+  3. Gin
+  4. Fiber
+  5. Axum
 
+
+## Links for deployed services
+
+### APIs
+
+  1. Flask
+    - [Railway.app]()
+  2. ExpressJS
+    - [Railway.app](https://express-railway.matejbasic.com/benchmark)
+  3. Gin
+    - [Railway.app]
+  4. Fiber
+    - [Railway.app]
+  5. Axum
+    - [Railway.app]
