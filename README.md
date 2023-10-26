@@ -102,18 +102,18 @@ Languages and frameworks are categorized the same way as services.
 
 ### APIs
 
-  1. Flask
+  1. Flask  
     - [Railway.app](https://flask-railway.matejbasic.com/benchmark)  
     - [Render.com](https://flask-render.matejbasic.com/benchmark)  
-  2. ExpressJS
+  2. ExpressJS  
     - [Railway.app](https://express-railway.matejbasic.com/benchmark)  
     - [Render.com](https://express-render.matejbasic.com/benchmark)  
-  3. Gin
+  3. Gin  
     - [Railway.app](https://gin-railway.matejbasic.com/benchmark)  
     - [Render.com](https://gin-render.matejbasic.com/benchmark)  
-  4. Fiber
+  4. Fiber  
     - [Railway.app](https://fiber-railway.matejbasic.com/benchmark)  
     - [Render.com](https://fiber-render.matejbasic.com/benchmark)  
-  5. Axum
+  5. Axum  
     - [Railway.app](https://axum-railway.matejbasic.com/benchmark)  
     - [Render.com](https://axum-render.matejbasic.com/benchmark)  
