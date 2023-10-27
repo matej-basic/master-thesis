@@ -255,3 +255,7 @@ Cargo.lock
 *.pdb
 
 # End of https://www.toptal.com/developers/gitignore/api/nextjs,angular,react,svelte,node,vuejs,vue
+
+.python_packages
+__pycache__
+.venv
