@@ -107,23 +107,28 @@ Languages and frameworks are categorized the same way as services.
     - [Render.com](https://flask-render.matejbasic.com/benchmark)  
     - [Fly.io](https://flask-fly.matejbasic.com/benchmark)  
     - [Azure App Service](https://flask-azure.matejbasic.com/benchmark)  
+    - [Azure Function](https://flask-function.matejbasic.com/benchmark)  
   2. ExpressJS  
     - [Railway.app](https://express-railway.matejbasic.com/benchmark)  
     - [Render.com](https://express-render.matejbasic.com/benchmark)  
     - [Fly.io](https://express-fly.matejbasic.com/benchmark)  
     - [Azure App Service](https://express-azure.matejbasic.com/benchmark)  
+    - [Azure Function](https://express-function.matejbasic.com/benchmark)  
   3. Gin  
     - [Railway.app](https://gin-railway.matejbasic.com/benchmark)  
     - [Render.com](https://gin-render.matejbasic.com/benchmark)  
     - [Fly.io](https://gin-fly.matejbasic.com/benchmark)  
     - [Azure App Service](https://gin-azure.matejbasic.com/benchmark)  
+    - [Azure Function](https://gin-function.matejbasic.com/benchmark)  
   4. Fiber  
     - [Railway.app](https://fiber-railway.matejbasic.com/benchmark)  
     - [Render.com](https://fiber-render.matejbasic.com/benchmark)  
     - [Fly.io](https://fiber-fly.matejbasic.com/benchmark)  
     - [Azure App Service](https://fiber-azure.matejbasic.com/benchmark)  
+    - [Azure Function](https://fiber-function.matejbasic.com/benchmark)  
   5. Axum  
     - [Railway.app](https://axum-railway.matejbasic.com/benchmark)  
     - [Render.com](https://axum-render.matejbasic.com/benchmark)  
     - [Fly.io](https://axum-fly.matejbasic.com/benchmark)  
     - [Azure App Service](https://axum-azure.matejbasic.com/benchmark)  
+    - [Azure Function](https://axum-function.matejbasic.com/benchmark)  
