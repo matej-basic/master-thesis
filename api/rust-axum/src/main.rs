@@ -1,6 +1,5 @@
 use axum::{routing::get, Router};
 use std::net::SocketAddr;
-use std::env;
 
 #[tokio::main]
 async fn main() {
