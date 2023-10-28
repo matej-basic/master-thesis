@@ -48,7 +48,8 @@ func checkLinkStatus(service Service) bool {
 	fmt.Println("Checking status of service: " + service.SERVICE_NAME)
 	response, err := http.Get(service.SERVICE_URL)
 	if err != nil {
-		log.Fatal("Failed to get URL: ", service.SERVICE_URL)
+		log.Println("Failed to get URL: ", service.SERVICE_URL)
+		return false
 	}
 	//defer response.Body.Close()
 
