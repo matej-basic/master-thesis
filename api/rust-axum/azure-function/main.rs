@@ -1,26 +1,21 @@
-use axum::{routing::get, Router};
-use std::net::SocketAddr;
 use std::env;
+use warp::{http::Response, Filter};
+use std::net::Ipv4Addr;
 
 #[tokio::main]
 async fn main() {
-    let app = Router::new().route("/benchmark", get(handler));
-    let port = env::var_os("FUNCTIONS_CUSTOMHANDLER_PORT")
-        .map(|value| {
-		value.to_string_lossy()
-   		     .parse::<i32>()
-		     .unwrap_or(3000)
-	})
-	.unwrap_or(3000);
+    let response = warp::any().map(|| {
+        Response::builder()
+        .body("Simple Rust benchmark")
+    });
+    let server = warp::get()
+        .and(response);
 
-    let addr = SocketAddr::from(([0,0,0,0], port as u16));
+    let port_key = "FUNCTIONS_CUSTOMHANDLER_PORT";
+    let port: u16 = match env::var(port_key) {
+        Ok(val) => val.parse().expect("Custom Handler port is not a number!"),
+        Err(_) => 3000,
+    };
 
-    axum::Server::bind(&addr)
-        .serve(app.into_make_service())
-        .await
-        .unwrap();
-}
-
-async fn handler() -> &'static str {
-    "Simple Rust benchmark for Axum"
+    warp::serve(server).run((Ipv4Addr::LOCALHOST, port)).await
 }
