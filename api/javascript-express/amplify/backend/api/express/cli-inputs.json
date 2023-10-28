@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/benchmark": {
+      "name": "/benchmark",
+      "lambdaFunction": "express",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "api": {
+    "express": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "express"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "function": {
+    "express": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_express_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "express"
+        }
+      ]
+    },
+    "AMPLIFY_function_express_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "express"
+        }
+      ]
+    }
+  }
+}
