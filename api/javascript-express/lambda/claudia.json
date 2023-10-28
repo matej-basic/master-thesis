@@ -1,0 +1,10 @@
+{
+  "lambda": {
+    "role": "expressjs-executor",
+    "name": "expressjs",
+    "region": "eu-central-1"
+  },
+  "api": {
+    "id": "ugv4pui6i4"
+  }
+}
