@@ -259,6 +259,6 @@ Cargo.lock
 .python_packages
 __pycache__
 .venv
-        .vscode
+.vscode
 **/*fly.toml
 **/*.dockerignore
