@@ -10,9 +10,9 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+var ginLambda *ginadapter.GinLambda
 
 func Handler(ctx context.Context, req events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
-	var ginLambda *ginadapter.GinLambda
 	
 	log.Printf("Gin cold start")
 	r := gin.Default()
