@@ -10,10 +10,10 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-var ginLambda *ginadapter.GinLambda
 
-func init() {
-	// stdout and stderr are sent to AWS CloudWatch Logs
+func Handler(ctx context.Context, req events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
+	var ginLambda *ginadapter.GinLambda
+	
 	log.Printf("Gin cold start")
 	r := gin.Default()
 	r.GET("/ping", func(c *gin.Context) {
@@ -21,11 +21,6 @@ func init() {
 			"message": "pong",
 		})
 	})
-
-	ginLambda = ginadapter.New(r)
-}
-
-func Handler(ctx context.Context, req events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
 	// If no name is provided in the HTTP request body, throw an error
 	return ginLambda.ProxyWithContext(ctx, req)
 }
