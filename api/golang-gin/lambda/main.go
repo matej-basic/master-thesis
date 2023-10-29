@@ -20,7 +20,9 @@ func Handler(ctx context.Context, req events.APIGatewayProxyRequest) (events.API
 		// stdout and stderr are sent to AWS CloudWatch Logs
 		log.Printf("Gin cold start")
 		r := gin.Default()
-		r.GET("/benchmark", benchHandler)
+		r.GET("/benchmark", func(c *gin.Context) {
+			c.String(200, "Simple Gin Benchmark")
+		})
 
 		ginLambda = ginadapter.New(r)
 	}
@@ -30,8 +32,4 @@ func Handler(ctx context.Context, req events.APIGatewayProxyRequest) (events.API
 
 func main() {
 	lambda.Start(Handler)
-}
-
-func benchHandler(c *gin.Context) {
-	c.String(200, "Simple Gin Benchmark")
 }
