@@ -1,38 +1,37 @@
-// main.go
 package main
 
 import (
 	"context"
 	"log"
+	
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
-	fiberadapter "github.com/awslabs/aws-lambda-go-api-proxy/fiber"
-	"github.com/gofiber/fiber/v2"
+	ginadapter "github.com/awslabs/aws-lambda-go-api-proxy/gin"
+	"github.com/gin-gonic/gin"
 )
 
-var fiberLambda *fiberadapter.FiberLambda
+var ginLambda *ginadapter.GinLambda
 
-// init the Fiber Server
-func init() {
-	log.Printf("Fiber cold start")
-	var app *fiber.App
-	app = fiber.New()
-
-	app.Get("/benchmark", func(c *fiber.Ctx) error {
-		return c.SendString("Simple Fiber Benchmark")
-	})
-
-	fiberLambda = fiberadapter.New(app)
-}
-
-// Handler will deal with Fiber working with Lambda
+// Handler is the main entry point for Lambda. Receives a proxy request and
+// returns a proxy response
 func Handler(ctx context.Context, req events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
-	// If no name is provided in the HTTP request body, throw an error
-	return fiberLambda.ProxyWithContext(ctx, req)
+	if ginLambda == nil {
+		// stdout and stderr are sent to AWS CloudWatch Logs
+		log.Printf("Gin cold start")
+		r := gin.Default()
+		r.GET("/benchmark", benchHandler)
+
+		ginLambda = ginadapter.New(r)
+	}
+
+	return ginLambda.ProxyWithContext(ctx, req)
 }
 
 func main() {
-	// Make the handler available for Remote Procedure Call by AWS Lambda
 	lambda.Start(Handler)
+}
+
+func benchHandler(c *gin.Context) {
+	c.String(200, "Simple Gin Benchmark")
 }
