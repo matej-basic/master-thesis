@@ -4,6 +4,7 @@ flask-render,https://flask-render.matejbasic.com/benchmark
 flask-fly,https://flask-fly.matejbasic.com/benchmark
 flask-azure,https://flask-azure.matejbasic.com/benchmark
 flask-function,https://flask-function.matejbasic.com/benchmark
+flask-lambda,https://flask-lambda.matejbasic.com/benchmark
 express-railway,https://express-railway.matejbasic.com/benchmark
 express-render,https://express-render.matejbasic.com/benchmark
 express-fly,https://express-fly.matejbasic.com/benchmark

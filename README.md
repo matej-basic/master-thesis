@@ -108,6 +108,7 @@ Languages and frameworks are categorized the same way as services.
     - [Fly.io](https://flask-fly.matejbasic.com/benchmark)  
     - [Azure App Service](https://flask-azure.matejbasic.com/benchmark)  
     - [Azure Function](https://flask-function.matejbasic.com/benchmark)  
+    - [AWS Lambda](https://flask-lambda.matejbasic.com/benchmark)  
   2. ExpressJS  
     - [Railway.app](https://express-railway.matejbasic.com/benchmark)  
     - [Render.com](https://express-render.matejbasic.com/benchmark)  
