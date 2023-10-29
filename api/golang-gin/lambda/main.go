@@ -17,7 +17,8 @@ func init() {
 	log.Printf("Gin cold start")
 	r := gin.Default()
 	r.GET("/benchmark", func(c *gin.Context) {
-		c.String(200, "Simple Gin Benchmark")
+		c.JSON(200, gin.H{
+			"msg": "Simple Gin Benchmark"})
 	})
 
 	ginLambda = ginadapter.New(r)
