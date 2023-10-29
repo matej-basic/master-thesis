@@ -6,6 +6,10 @@ The thesis is titled "Comparing price to performance ratio of Serverless service
 The premise of this thesis is to explore the world of serverless services and appropriate programming languages, frameworks and other tools used at the time of writting this thesis (Summer / Fall 2023).  
 This is not a one size fits all solution, but I will give insight on how I felt using each platform and tool from a standpoint of a Systems engineer / DevOps engineer. 
 
+## Curl testing used
+
+Usage: curl -w "@curl-format.txt" -o /dev/null -s "https://link"  
+
 ## Serverless services tested
 
 Below is the list of serverless services and providers included in this test.  
@@ -16,17 +20,10 @@ Services and providers are separated into 4 categories based on the usage of ser
   1. Vercel
   2. Netlify
   3. GitHub Pages
-  4. Render.com
-  5. CloudFlare
-  6. AWS
-     * Lightsail
-     * Amplify
+  4. CloudFlare
+  5. AWS
      * Simple Storage Service
-  7. GCP
-     * Cloud Run
-     * Firebase
-  8. Azure
-     * Azure App Services
+  6. Azure
      * Blob Storage
 
 ### Deploying an API 
@@ -36,17 +33,9 @@ Services and providers are separated into 4 categories based on the usage of ser
   3. Fly.io
   4. AWS  
      * Lambda  
-     * Fargate  
-  5. GCP  
-     * Cloud Functions  
-     * Cloud Run  
-     * Cloud Endpoints  
-     * App engine  
-  6. Azure  
+  5. Azure  
      * Azure Functions  
-     * Azure Container Apps  
      * Azure App Services  
-     * Azure Web API  
 
 ### Deploying a databse
 
