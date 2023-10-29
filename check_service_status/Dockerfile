@@ -5,7 +5,7 @@ COPY go.mod go.sum ./
 RUN go mod download
 
 COPY *.go ./
-RUN go build -o ./main
+RUN CGO_ENABLED=0 GOOS=linux go build -o ./main
 
 FROM debian:buster-slim
 COPY --from=builder /app/main ./
