@@ -18,7 +18,7 @@ func init() {
 	var app *fiber.App
 	app = fiber.New()
 
-	app.Get("/benchmark", func(c *fiber.Ctx) error {
+	app.Get("/", func(c *fiber.Ctx) error {
 		return c.SendString("Simple Golang Fiber Benchmark")
 	})
 
