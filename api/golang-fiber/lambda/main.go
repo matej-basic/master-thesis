@@ -19,7 +19,7 @@ func init() {
 	app = fiber.New()
 
 	app.Get("/benchmark", func(c *fiber.Ctx) error {
-		return c.SendString("Hello, World!")
+		return c.SendString("Simple Golang Fiber Benchmark")
 	})
 
 	fiberLambda = fiberadapter.New(app)
