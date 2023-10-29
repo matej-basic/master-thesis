@@ -10,4 +10,5 @@ RUN go build -o ./main
 FROM debian:buster-slim
 COPY --from=builder /app/main ./
 COPY curl-format.txt ./
+COPY service_links.txt ./
 CMD ["./main"]
