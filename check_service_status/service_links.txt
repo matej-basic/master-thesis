@@ -15,6 +15,7 @@ gin-render,https://gin-render.matejbasic.com/benchmark
 gin-fly,https://gin-fly.matejbasic.com/benchmark
 gin-azure,https://gin-azure.matejbasic.com/benchmark
 gin-function,https://gin-function.matejbasic.com/benchmark
+gin-lambda,https://gin-lambda.matejbasic.com/benchmark
 fiber-railway,https://fiber-railway.matejbasic.com/benchmark
 fiber-render,https://fiber-render.matejbasic.com/benchmark
 fiber-fly,https://fiber-fly.matejbasic.com/benchmark
@@ -26,3 +27,4 @@ axum-render,https://axum-render.matejbasic.com/benchmark
 axum-fly,https://axum-fly.matejbasic.com/benchmark
 axum-azure,https://axum-azure.matejbasic.com/benchmark
 axum-function,https://axum-function.matejbasic.com/benchmark
+axum-lambda,https://axum-lambda.matejbasic.com/benchmark
