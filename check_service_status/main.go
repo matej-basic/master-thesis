@@ -15,6 +15,11 @@ import (
 
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
+	
+	"github.com/aws/aws-sdk-go/aws"
+	"github.com/aws/aws-sdk-go/aws/credentials"
+	"github.com/aws/aws-sdk-go/aws/session"
+	"github.com/aws/aws-sdk-go/service/s3/s3manager"
 )
 
 type Service struct {
@@ -37,6 +42,8 @@ type TestingResult struct {
 var collection *mongo.Collection
 var ctx = context.TODO()
 var mongoURI = os.Getenv("MONGO_CONNECTION_URI") 
+var accessKey = os.Getenv("ACCESS_KEY") 
+var secretAccessKey = os.Getenv("SECRET_ACCESS_KEY") 
 
 func init() {
 	clientOptions := options.Client().ApplyURI(mongoURI)
@@ -136,8 +143,8 @@ func curlTesting(service Service) TestingResult {
 	return result
 }
 
-func saveResultToFile(res TestingResult) {
-	file, err := os.OpenFile("./testing_results.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+func saveResultToFile(res TestingResult, startStamp string) {
+	file, err := os.OpenFile("./testing_results_" + startStamp + ".txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	check(err)
 
 	defer file.Close()
@@ -157,12 +164,41 @@ func saveResultToDB(res TestingResult) error{
 	return err
 }
 
+func uploadResultsToS3(startStamp string) {
+
+	s3Config := &aws.Config{
+		Region: aws.String("eu-central-1"),
+		Credentials: credentials.NewStaticCredentials(accessKey,secretAccessKey, ""),
+	}
+	s3Session := session.New(s3Config)
+
+	uploader := s3manager.NewUploader(s3Session)
+
+	filename := "./testing_results_" + startStamp + ".txt"
+	file, _ := os.Open(filename)
+	input := &s3manager.UploadInput{
+		Bucket: aws.String("master-thesis-logs"),
+		Key: aws.String(filename),
+		Body: file,
+		ContentType: aws.String("text/plain"),
+	}
+
+	output, err := uploader.UploadWithContext(context.Background(), input)
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println(output)
+	}
+}
+
 func main() {
 	links := readCsvFile("./service_links.txt")
+	startStamp := time.Now().Format("2006-Jan-02T15-04-05")
 	for _, link := range links {
 		fmt.Printf("Testing %s\n", link)
 		res := curlTesting(link)
-		saveResultToFile(res)
+		saveResultToFile(res, startStamp)
 		saveResultToDB(res)
 	}
+	uploadResultsToS3(startStamp)
 }
