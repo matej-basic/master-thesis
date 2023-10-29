@@ -16,10 +16,8 @@ func Handler(ctx context.Context, req events.APIGatewayProxyRequest) (events.API
 	
 	log.Printf("Gin cold start")
 	r := gin.Default()
-	r.GET("/ping", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "pong",
-		})
+	r.GET("/benchmark", func(c *gin.Context) {
+		c.String(200, "Simple Gin Benchmark")
 	})
 	// If no name is provided in the HTTP request body, throw an error
 	return ginLambda.ProxyWithContext(ctx, req)
