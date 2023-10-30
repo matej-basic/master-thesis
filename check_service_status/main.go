@@ -40,12 +40,28 @@ type TestingResult struct {
 }
 
 var collection *mongo.Collection
-var ctx = context.TODO()
-var mongoURI = os.Getenv("MONGO_CONNECTION_URI") 
-var accessKey = os.Getenv("ACCESS_KEY") 
-var secretAccessKey = os.Getenv("SECRET_ACCESS_KEY") 
+var ctx 							= context.TODO()
+var mongoURI 						= os.Getenv("MONGO_CONNECTION_URI") 
+var accessKey 						= os.Getenv("ACCESS_KEY") 
+var secretAccessKey 				= os.Getenv("SECRET_ACCESS_KEY") 
+var deployment 						= os.Getenv("DEPLOYMENT")
+var id 								= os.Getenv("ID")
 
 func init() {
+
+	// Run ID must be set to identify different deployments
+	_, present := os.LookupEnv("ID")
+	if (!present) {
+		os.Exit(3)
+	}
+
+	// Do not initialize anything if testing
+	// as I don't save testing to DB
+	if deployment == "" {
+		deployment = "TESTING"
+		return
+	}
+
 	clientOptions := options.Client().ApplyURI(mongoURI)
 	client, err := mongo.Connect(ctx, clientOptions)
 	if err != nil {
@@ -58,6 +74,8 @@ func init() {
 	}
 
 	collection = client.Database("master-thesis-db").Collection("testing-results")
+
+	
 }
 
 func check(e error) {
@@ -144,7 +162,7 @@ func curlTesting(service Service) TestingResult {
 }
 
 func saveResultToFile(res TestingResult, startStamp string) {
-	file, err := os.OpenFile("./testing_results_" + startStamp + ".txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	file, err := os.OpenFile("./testing_results_" + startStamp + "_" + id + ".txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	check(err)
 
 	defer file.Close()
@@ -165,7 +183,6 @@ func saveResultToDB(res TestingResult) error{
 }
 
 func uploadResultsToS3(startStamp string) {
-
 	s3Config := &aws.Config{
 		Region: aws.String("eu-central-1"),
 		Credentials: credentials.NewStaticCredentials(accessKey,secretAccessKey, ""),
@@ -174,7 +191,7 @@ func uploadResultsToS3(startStamp string) {
 
 	uploader := s3manager.NewUploader(s3Session)
 
-	filename := "./testing_results_" + startStamp + ".txt"
+	filename := "./testing_results_" + startStamp + "_" + id + ".txt"
 	file, _ := os.Open(filename)
 	input := &s3manager.UploadInput{
 		Bucket: aws.String("master-thesis-logs"),
@@ -198,7 +215,10 @@ func main() {
 		fmt.Printf("Testing %s\n", link)
 		res := curlTesting(link)
 		saveResultToFile(res, startStamp)
-		saveResultToDB(res)
+
+		if deployment == "PRODUCTION" {
+			saveResultToDB(res) 
+		}
 	}
 	uploadResultsToS3(startStamp)
 }
