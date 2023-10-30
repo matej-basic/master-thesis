@@ -74,9 +74,10 @@ Languages and frameworks are categorized the same way as services.
 
   1. jQuery
   2. ReactJS
-  3. AngularJS
-  4. Vue.JS
-  5. Svelte
+  3. NextJS
+  4. AngularJS
+  5. Vue.JS
+  6. Svelte
 
 ### Deploying an API
 
@@ -88,6 +89,45 @@ Languages and frameworks are categorized the same way as services.
 
 
 ## Links for deployed services
+
+### Static websites  
+
+  1. jQuery  
+    - [Vercel](https://jquery-vercel.matejbasic.com)  
+    - [Netlify](https://jquery-netlify.matejbasic.com)  
+    - [Render](https://jquery-render.matejbasic.com)  
+    - [Azure Blob](https://jquerybenchmark.z6.web.core.windows.net/)  
+    - [AWS S3](http://jquery-benchmark.s3-website.eu-central-1.amazonaws.com)  
+  2. ReactJS  
+    - [Vercel](https://react-vercel.matejbasic.com)  
+    - [Netlify](https://react-netlify.matejbasic.com)  
+    - [Render](https://react-render.matejbasic.com)  
+    - [Azure Blob](https://reactbenchmark.z6.web.core.windows.net/)  
+    - [AWS S3](http://react-benchmark.s3-website.eu-central-1.amazonaws.com)  
+  3. NextJS  
+    - [Vercel](https://next-vercel.matejbasic.com)  
+    - [Netlify](https://next-netlify.matejbasic.com)  
+    - [Render](https://next-render.matejbasic.com)  
+    - [Azure Blob](https://nextbenchmark.z6.web.core.windows.net/)  
+    - [AWS S3](http://next-benchmark.s3-website.eu-central-1.amazonaws.com)  
+  4. AngularJS  
+    - [Vercel](https://angular-vercel.matejbasic.com)  
+    - [Netlify](https://angular-netlify.matejbasic.com)  
+    - [Render](https://angular-render.matejbasic.com)  
+    - [Azure Blob](https://angularbenchmark.z6.web.core.windows.net/)  
+    - [AWS S3](http://angular-benchmark.s3-website.eu-central-1.amazonaws.com)  
+  5. Vue.JS  
+    - [Vercel](https://vue-vercel.matejbasic.com)  
+    - [Netlify](https://vue-netlify.matejbasic.com)  
+    - [Render](https://vue-render.matejbasic.com)  
+    - [Azure Blob](https://vuebenchmark.z6.web.core.windows.net/)  
+    - [AWS S3](http://vue-benchmark.s3-website.eu-central-1.amazonaws.com)  
+  6. Svelte  
+    - [Vercel](https://svelte-vercel.matejbasic.com)  
+    - [Netlify](https://svelte-netlify.matejbasic.com)  
+    - [Render](https://svelte-render.matejbasic.com)  
+    - [Azure Blob](https://sveltebenchmark.z6.web.core.windows.net/)  
+    - [AWS S3](http://svelte-benchmark.s3-website.eu-central-1.amazonaws.com)  
 
 ### APIs
 
