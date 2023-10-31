@@ -8,6 +8,7 @@ COPY *.go ./
 RUN CGO_ENABLED=0 GOOS=linux go build -o ./main
 
 FROM debian:buster-slim
+WORKDIR /app
 RUN apt-get update -y && apt-get install curl -y 
 COPY --from=builder /app/main ./
 COPY curl-format.txt ./
